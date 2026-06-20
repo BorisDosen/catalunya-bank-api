@@ -30,9 +30,9 @@ A voice bot built on the **Enterprise Bot AIDA platform** that lets a caller aut
 
 | Account Number | PIN  | Customer Name     | Balance     |
 |----------------|------|-------------------|-------------|
-| ACC-001001     | 4821 | Sophie Turner     | EUR 3,245.67 |
-| ACC-001002     | 7734 | James Harrington  | EUR 18,902.50 |
-| ACC-001003     | 2296 | Elena Vasquez     | EUR 742.18  |
+| 112233         | 4821 | Sophie Turner     | EUR 3,245.67 |
+| 445566         | 7734 | James Harrington  | EUR 18,902.50 |
+| 778899         | 2296 | Elena Vasquez     | EUR 742.18  |
 
 ---
 
@@ -109,7 +109,7 @@ Interactive docs: `http://localhost:8000/docs`
 3. Click **New Project** → **Deploy from GitHub repo** → select this repo.
 4. Railway detects Python from `requirements.txt` and uses `Procfile` to start the server.
 5. Once deployed, go to **Settings → Networking → Generate Domain**.
-6. Copy your public URL, e.g. `https://catalunya-bank-api-production.up.railway.app`
+6. Copy your public URL — it will look like `https://web-production-XXXXX.up.railway.app`
 
 Then update the AIDA tool URLs:
 - **verifytoken:** `https://YOUR-RAILWAY-URL/verifytoken`
@@ -120,3 +120,4 @@ Then update the AIDA tool URLs:
 ## What I'd improve with more time
 
 PIN values are stored in plaintext in the database; in production I would hash them with bcrypt so a database breach doesn't expose credentials directly. Issued tokens currently live forever in an in-memory dictionary, so I would add expiry timestamps and move the store to Redis or a database table to survive server restarts. I would also add per-account rate limiting on `/verifytoken` to prevent brute-force PIN guessing. Finally, I would replace the hand-rolled hex token with a signed JWT so the token itself carries a verifiable expiry claim and the server doesn't need to store state at all.
+
