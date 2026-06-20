@@ -44,7 +44,7 @@ Authenticate a customer.
 
 Request body (JSON):
 ```json
-{ "account_number": "ACC-001001", "pin": "4821" }
+{ "account_number": "001001", "pin": "4821" }
 ```
 
 Success response:
@@ -54,7 +54,7 @@ Success response:
   "token": "<hex-token>",
   "auth_token": "<hex-token>",
   "customer_name": "Sophie Turner",
-  "account_number": "ACC-001001"
+  "account_number": "001001"
 }
 ```
 
