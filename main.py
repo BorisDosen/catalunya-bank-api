@@ -57,9 +57,9 @@ def init_db() -> None:
     """)
     # INSERT OR IGNORE keeps this idempotent – safe to run on every startup.
     seed = [
-        ("ACC-001001", "4821", "Sophie Turner",     3_245.67),
-        ("ACC-001002", "7734", "James Harrington", 18_902.50),
-        ("ACC-001003", "2296", "Elena Vasquez",       742.18),
+        ("112233", "4821", "Sophie Turner",     3_245.67),
+        ("445566", "7734", "James Harrington", 18_902.50),
+        ("778899", "2296", "Elena Vasquez",       742.18),
     ]
     cur.executemany(
         "INSERT OR IGNORE INTO accounts (account_number, pin, customer_name, balance) VALUES (?, ?, ?, ?)",
